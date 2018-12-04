@@ -15,18 +15,22 @@ public class GuestBook implements ActionListener {
 		JPanel esketit = new JPanel();
 		JButton wow = new JButton();
 		JButton boof = new JButton();
+		ArrayList<String> pass = new ArrayList<String>();
 		GuestBook() {
 			boi.add(esketit);
+			boi.setVisible(true);
 			esketit.add(wow);
 			esketit.add(boof);
 			wow.addActionListener(this);
 			boof.addActionListener(this);
 			wow.setText("Add name");
-			wow.setText("View name(s)");
+			boof.setText("View name(s)");
+			boi.pack();
+	
 		}
 		public static void main(String[] args) {
 			GuestBook lol = new GuestBook();
-		}
+					}
 	// Create a GUI with two buttons. One button reads "Add Name" and the other button reads "View Names". 
 	// When the add name button is clicked, display an input dialog that asks the user to enter a name. Add
 	// that name to an ArrayList. When the "View Names" button is clicked, display a message dialog that displays
@@ -42,9 +46,14 @@ public class GuestBook implements ActionListener {
 			// TODO Auto-generated method stub
 			if (ButtonPressed == wow) {
 				String ayy = JOptionPane.showInputDialog("Add a name");
+				pass.add(ayy);
 			}
 			else {
-				
+				for (int i = 0;i < pass.size(); i++) {
+					String bad = pass.get(i);
+					String lsd = "Guest #" + (i+1) + ": " + bad;
+					JOptionPane.showMessageDialog(null, lsd);
+				}
 			}
 		}
 }
