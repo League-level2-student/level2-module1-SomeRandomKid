@@ -49,11 +49,12 @@ public class GuestBook implements ActionListener {
 				pass.add(ayy);
 			}
 			else {
+				String lsd = "";
 				for (int i = 0;i < pass.size(); i++) {
 					String bad = pass.get(i);
-					String lsd = "Guest #" + (i+1) + ": " + bad;
-					JOptionPane.showMessageDialog(null, lsd);
+					lsd += " Guest #" + (i+1) + ": " + bad;
 				}
+				JOptionPane.showMessageDialog(null, lsd);
 			}
 		}
 }
