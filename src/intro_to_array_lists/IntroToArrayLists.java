@@ -33,5 +33,11 @@ public class IntroToArrayLists {
 			System.out.println(lmfao);
 		}
 		//7. Print only the Strings that have the letter 'e' in them.
+		for (int l = 0; l < oof.size(); l++) {
+			String lmbao = oof.get(l);
+		if (lmbao.contains("e")) {
+			System.out.println(lmbao);
+		}
+		}
 	}
 }
