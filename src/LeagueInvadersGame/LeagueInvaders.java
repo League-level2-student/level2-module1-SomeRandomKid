@@ -10,6 +10,7 @@ public class LeagueInvaders {
 	int yValue = 800;
 	GamePanel esketit;
 	
+	
 	LeagueInvaders() {
 		boi = new JFrame();
 		esketit = new GamePanel();
@@ -27,5 +28,7 @@ public class LeagueInvaders {
 		boi.add(esketit);
 		boi.setVisible(true);
 		boi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		esketit.startGame();
+		boi.addKeyListener(esketit);
 	}
 }
