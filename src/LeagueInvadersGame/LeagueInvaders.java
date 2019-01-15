@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 
 public class LeagueInvaders {
 	JFrame boi;
-	int xValue = 500;
-	int yValue = 800;
+	public static int xValue = 500;
+	public static int yValue = 800;
 	GamePanel esketit;
 	
 	
