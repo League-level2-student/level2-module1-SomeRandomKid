@@ -22,6 +22,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	int current = Start;
 	Font titleFont;
 	Font secondaryFont;
+	Rocketship hola = new Rocketship( 250, 700, 50, 50 );
 	
 	GamePanel() {
 		lol = new Timer(1000/60, this);
@@ -75,19 +76,46 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 			if (current > End) {
 				current = Start;
 			}
+			
+			
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_UP) {
+				hola.up = true;
+			}
+		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			hola.down = true;
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			hola.left = true;
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			hola.right = true;
 		}
 	}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			hola.up = false;
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			hola.down = false;
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			hola.left = false;
+		}
+		else if (e.getKeyCode() == KeyEvent.VK_RIGHT){
+			hola.right = false;
+		}
 		
 	}
 	void updateStart() {
 		
 	}
 	void updateMiddle() {
-		
+		hola.update();
 	}
 	void updateEnd() {
 		
@@ -98,11 +126,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.setFont(titleFont);
 		g.setColor(Color.YELLOW);
 		g.drawString("LEAGUE INVADERS", 25, 200);
+		g.setFont(secondaryFont);
+		g.drawString("Press ENTER to start", 125, 325);
+		g.drawString("Press SPACE for intructions", 100, 450);
 		
 	}
 	void drawMiddle(Graphics g) {
 		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, LeagueInvaders.xValue, LeagueInvaders.yValue);    
+		g.fillRect(0, 0, LeagueInvaders.xValue, LeagueInvaders.yValue);  
+		hola.draw(g);
 	}
 	void drawEnd(Graphics g) {
 		g.setColor(Color.RED);
@@ -111,7 +143,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.setColor(Color.BLACK);
 		g.drawString("GAME OVER", 100, 200);
 		g.setFont(secondaryFont);
-		g.drawString("You killed 0 Enemies", 130, 300);
+		g.drawString("You killed 0 Enemies", 130, 325);
+		g.drawString("Press ENTER to restart", 120, 450);
 
 		
 	}
