@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	Font titleFont;
 	Font secondaryFont;
 	Rocketship hola = new Rocketship( 250, 700, 50, 50 );
+	ObjectManager sicko = new ObjectManager(hola);
 	
 	GamePanel() {
 		lol = new Timer(1000/60, this);
@@ -77,18 +78,17 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 				current = Start;
 			}
 			
-			
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_UP) {
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
 				hola.up = true;
 			}
-		else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			hola.down = true;
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+		 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			hola.left = true;
 		}
-		else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+	 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			hola.right = true;
 		}
 	}
@@ -115,7 +115,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		
 	}
 	void updateMiddle() {
-		hola.update();
+	sicko.update();
 	}
 	void updateEnd() {
 		
@@ -134,7 +134,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	void drawMiddle(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.xValue, LeagueInvaders.yValue);  
-		hola.draw(g);
+		sicko.draw(g);
 	}
 	void drawEnd(Graphics g) {
 		g.setColor(Color.RED);

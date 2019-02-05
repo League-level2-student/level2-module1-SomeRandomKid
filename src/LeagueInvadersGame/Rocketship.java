@@ -11,6 +11,9 @@ boolean down = false;
 boolean left = false;
 boolean right = false;
 
+
+
+
 	Rocketship(int x, int y, int width, int height) {
 		super(x, y, width, height);
 		speed = 5;
@@ -21,13 +24,13 @@ boolean right = false;
 		if(up) {
 		y -= speed;
 		}
-		else if (down) {
+		if (down) {
 			y += speed;
 		}
-		else if (left) {
+		if (left) {
 			x -= speed;
 		}
-		else if (right) {
+		if (right) {
 			x += speed;
 		}
 	}
