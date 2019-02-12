@@ -79,6 +79,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 			}
 			
 		}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+			Projectiles p = new Projectiles(hola.x + 20, hola.y, 10, 10);
+	        sicko.addProjectile(p);
+		}
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
 				hola.up = true;
 			}
@@ -90,8 +94,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		}
 	 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			hola.right = true;
+	 }
 		}
-	}
+	
 	
 
 	@Override
