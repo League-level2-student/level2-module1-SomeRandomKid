@@ -18,16 +18,22 @@ public class ObjectManager {
 		weeb.update();
 		for(int i = 0; i < mode.size(); i++) {
 			mode.get(i).update();
-			AlienArray.get(i).update();
 		}
+		for(int i = 0; i < AlienArray.size(); i++) {
+				AlienArray.get(i).update();
+			}
+		
 		
 	}
 	void draw(Graphics g) {
 		weeb.draw(g);
 		for(int i = 0; i < mode.size(); i++) {
 			mode.get(i).draw(g);
+		}
+		for(int i = 0; i < AlienArray.size(); i++) {
 			AlienArray.get(i).draw(g);
 		}
+
 		
 	}
 	
@@ -44,4 +50,26 @@ public class ObjectManager {
 	       
 	}
 	}
+		void purgeObjects() {
+			for(int i = 0; i < AlienArray.size(); i++) {
+				Aliens purgeAlien = AlienArray.get(i);
+				if(purgeAlien.isAlive == false) {
+					AlienArray.remove(i);
+				}
+			}
+		for(int i = 0; i < mode.size(); i++) {
+			Projectiles purgeProj = mode.get(i);
+			if(purgeProj.isAlive == false) {
+				AlienArray.remove(i);
+			}
+		}
+	}
+		void checkCollision() {
+			for(Aliens a : AlienArray){
+		        if(weeb.collisionBox.intersects(a.collisionBox)){
+		                weeb.isAlive = false;
+		        }
+
+		}
+		}
 }

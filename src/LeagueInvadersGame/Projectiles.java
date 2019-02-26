@@ -13,6 +13,7 @@ int speed;
 		// TODO Auto-generated constructor stub
 	}
 	void update() {
+		super.update();
 		y -= speed;
 		if (y == 0) {
 			isAlive = false;

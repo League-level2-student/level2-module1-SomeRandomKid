@@ -121,6 +121,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	}
 	void updateMiddle() {
 	sicko.update();
+	sicko.manageEnemies();
 	}
 	void updateEnd() {
 		
