@@ -77,6 +77,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 			if (current > End) {
 				current = Start;
 			}
+			if (current == Middle) {
+				hola = new Rocketship(250, 700, 50, 50 );
+				sicko = new ObjectManager(hola);
+			}
 			
 		}
 		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
@@ -122,6 +126,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	void updateMiddle() {
 	sicko.update();
 	sicko.manageEnemies();
+	sicko.checkCollision();
+	sicko.purgeObjects();
+	if(hola.isAlive == false) {
+		current++;
+		if (current == End) {
+			updateEnd();
+		}
+		}
 	}
 	void updateEnd() {
 		
@@ -149,7 +161,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.setColor(Color.BLACK);
 		g.drawString("GAME OVER", 100, 200);
 		g.setFont(secondaryFont);
-		g.drawString("You killed 0 Enemies", 130, 325);
+		g.drawString("You killed " + sicko.getScore() + " Enemies", 130, 325);
 		g.drawString("Press ENTER to restart", 120, 450);
 
 		

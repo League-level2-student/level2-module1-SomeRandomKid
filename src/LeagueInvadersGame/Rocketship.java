@@ -34,6 +34,18 @@ boolean right = false;
 		if (right) {
 			x += speed;
 		}
+		if (x < 0) {
+			x = 0;
+		}
+		if (x > 450) {
+			x = 450;
+		}
+		if (y < 0) {
+			y = 0;
+		}
+		if (y > 730) {
+			y = 730;
+		}
 	}
 	
 	void draw(Graphics g) {
